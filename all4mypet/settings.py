@@ -57,7 +57,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
-ALLOWED_HOSTS = ['*','10.0.2.2',]
+# ALLOWED_HOSTS = ['*','10.0.2.2',]
+ALLOWED_HOSTS = ['.vercel.app']
 
 ROOT_URLCONF = 'all4mypet.urls'
 
