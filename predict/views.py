@@ -29,7 +29,8 @@ class prediccion(APIView):
         return Response(responseOk)
     
     def post(self, request, format=None):
-        modelo_exportado = load_model('modelov5.h5')
+        #modelo_exportado = load_model('modelov5.h5')
+        modelo_exportado = load_model('modelo3.h5')
         prueba = []
         responseOk=self.createJson("succes","202","funciona")
         serializer = request.data
@@ -45,8 +46,15 @@ class prediccion(APIView):
         print(tensor.shape)
         resultado = modelo_exportado.predict([tensor])
         print(resultado)
+        result = str(resultado)
+        #return Response('Katakana')
+        if result == "[[0.]]":
+            return Response('Hiragana')
+        else:
+            return Response('Katakana')
+        
+        #return Response(responseOk)
 
-        return Response(responseOk)
     
 
 
